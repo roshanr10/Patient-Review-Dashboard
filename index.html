@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>PRS Project</title>
+  <title>PRS Projcet</title>
 
   <!-- CSS only -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -12,6 +12,10 @@
   <style>
     body {
       padding-top: 80px;
+    }
+
+    button {
+      margin: 10px 5px;
     }
 
     /* SRC: https://stackoverflow.com/a/49343426 */
@@ -44,6 +48,11 @@
     .card {
       margin-bottom: 10px;
     }
+
+    .rating-table .rating-box {
+      position: absolute;
+      right: 0;
+    }
   </style>
 </head>
 
@@ -52,211 +61,16 @@
     <a class="navbar-brand" href="#">PRS Project</a>
   </nav>
 
-  <h1 class="display-4 offset-1">James Pease</h1>
+  <h1 class="display-4 offset-1 doctor-name"></h1>
   <div class="row">
     <div class="col-3 offset-1 sidebar">
-      <h5>Healthgrades</h5>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td>Trustworthiness</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 56.35%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Explains Condition Well</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 56.35%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Answers Questions</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 56.35%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Time Well Spent</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 54.3%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Scheduling</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 52.15%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Office Environment</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 51.45%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Staff Friendliness</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 44.4%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Healthgrades Overall</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 74.47%;"></div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <hr>
-      <h5>Vitals</h5>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td>Easy Appointment</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 29.8%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Promptness</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 47.1%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Friendly Staff</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 30.6%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Accurate Diagnosis</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 50.4%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Bedside Manner</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 50.1%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Spends Time</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 51%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Appropriate Followup</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 32.8%;"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Vitals Overall</td>
-            <td>
-              <div class="rating-box">
-                <div class="rating" style="width: 58.36%;"></div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
+      <table class="table rating-table">
+        <tbody></tbody>
       </table>
     </div>
-    <div class="col-7">
-      <div class="card">
-        <div class="card-body">
-          <div class="rating-box">
-            <div class="rating" style="width:100%;"></div>
-          </div>
-          <p>Dr Pease is genuine caring and knowledgeable He takes his time even with the most challenging patients
-            and believes in his patients His bedside manner is great Unlike most physicians today he does not rush you
-            in and out He is down to earth and treats his patients with compassion even with the most challenging
-            patients If your looking for a Dr who truly listens and also cares about what's going on in your personal
-            life </p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <div class="rating-box">
-            <div class="rating" style="width:100%;"></div>
-          </div>
-          <p>My husband my mother and I have all been patients of Dr Pease for many years as long as he's been in
-            Worcester He listens explains treatments appropriately and doesn't over prescribe medications He is
-            genuinely concerned about his patients and is very knowledgeable His wait time used to be long but it is
-            much better lately His current staff are professional and do a great job
-          </p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <div class="rating-box">
-            <div class="rating" style="width:100%;"></div>
-          </div>
-          <p>I love Dr Pease he is easy to talk to a real person I have been his patient for over 10 years I have had
-            to wait to see him because he does run late because he takes is time to talk to his patients He is the
-            best I have also had his wife cover once when he was out she is also awesome Out of all the other doctors
-            I have ha din the past he is definitely the most personable
-          </p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <div class="rating-box">
-            <div class="rating" style="width:100%;"></div>
-          </div>
-          <p>Dr Pease takes the time to listen to you to talk to you and to get the big picture of your life and your
-            health He's a family doctor and he does very well with kids and adults He also isn't incined to give you a
-            prescription just to get you out the door He'll tell you about treatment alternatives and give you the
-            options and let you decide what to do He has a practical conservative approach preferring proven
-            treatments rather than the latest unproven fads
-          </p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <div class="rating-box">
-            <div class="rating" style="width:20%;"></div>
-          </div>
-          <p>Terrible I was trying pick up my boyfriend who is on crutches so he could get his knee looked at after a
-            football injury as his friend had dropped him off at Dr Pease's for an appointment The doctor used his
-            hands to literally shoo him away like an animal after already allowing him to book an appointment They
-            then refused to let him use their phone to call me forcing him to sit in their office after so rudely
-            dissmissing him Greedy greedy non compassionate Doctor Not a people person</p>
-        </div>
-      </div>
+    <div class="col-7 reviews">
+      <div class="keywords btn-toolbar" role="toolbar"></div>
+      <div class="reviews-body"></div>
     </div>
   </div>
 
@@ -269,6 +83,116 @@
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+
+  <script>
+    const info = {
+        "Id": "8",
+        "Name": "Ann Morvai",
+        "Degree": "MD",
+        "Specialty": "Family Medicine",
+        "Gender": "Female",
+        "Age": "57",
+        "Total Score": "4.07",
+        "Friendly Staff": "4.17",
+        "Scheduling": "4",
+        "Accurate Diagnosis": "4",
+        "Appropriate Followup": "4",
+        "Spends Time": "4.17",
+        "Bedside Experience": "4.09",
+        "Comments": [
+            {
+                "Service": "Vitals",
+                "Comment": "I have been a patient of Dr Morvai for roughly 17 years and I have never been disappointed I can tell she loves helping her patients and has been very sweet to me She also has a tremendous staff that is always very friendly",
+                "Stars": "5"
+            },
+            {
+                "Service": "Vitals",
+                "Comment": "Ann is a wonderful doctor I've been a patient almost as long as she's been practicing My partner was a long term patient of Ann's as well and was the one that connected me with 15 or 16 years ago",
+                "Stars": "5"
+            },
+            {
+                "Service": "Vitals",
+                "Comment": "Although the wait time can be a bit long it is so worth it when it comes to your time with the Doc Dr Morvai is very attentive and is genuinely concerned about your well being The only negative is that she only works 2 days a week All of the staff are very kind and willing to work with you I have been seeing Dr Morvai since 1991 this should be testament to itself Thanks for all of the help through the years",
+                "Stars": "5"
+            },
+            {
+                "Service": "Vitals",
+                "Comment": "Very friendly staff able to see me same day i was very impressed",
+                "Stars": "5"
+            },
+            {
+                "Service": "Vitals",
+                "Comment": "i was very impressed with Dr Morvai She has tremendous experience wonderful manner and is very thorough and complete She explains things very well and cares for her patients",
+                "Stars": "5"
+            },
+            {
+                "Service": "Vitals",
+                "Comment": "Uncaring and incompetent staff should not be allowed in profession that deals with people Aid jabs arm randomly to take blood Emphasis on selling medical aesthetics is offensive The doctors and medical staff are fine in the two minutes you get to see them but why put up with the lack of respect",
+                "Stars": "1"
+            },
+            {
+                "Service": "Healthgrades",
+                "Comment": "Dr Morvai has been my family physician for over 17 years and she has always had the utmost respect and reliability for me She always sees me for my annual visit but these last few years I was diagnosed with Lupus which Dr Morvai helped me through every step of the way I would highly recommend Dr Morvai to all of my family and friends",
+                "Stars": "5"
+            }
+        ],
+        "Keywords": [
+            "staff",
+            "tremendous",
+            "friendly",
+            "wonderful",
+            "time",
+            "impressed",
+            "respect",
+            "wait"
+        ]
+    };
+
+    $('.doctor-name').text(info.Name);
+
+    [
+      "Total Score", "Friendly Staff", "Scheduling", "Accurate Diagnosis",
+      "Appropriate Followup", "Spends Time", "Bedside Experience"
+    ].forEach(metric => {
+      $(".rating-table tbody")
+        .append(`<tr>
+          <td>${metric}</td>
+          <td><div class="rating-box"><div class="rating" style="width: ${info[metric]*20}%;"></div></div></td>
+          </tr>`);
+    });
+
+    info.Comments.forEach(comment => {
+      $(".reviews-body")
+        .append(`<div class="card"><div class="card-body"><div class="rating-box">
+          <div class="rating" style="width:${comment.Stars*20}%;"></div>
+          <p class="badge badge-pill badge-primary">${comment.Service}</p>
+          </div><p>${comment.Comment}</p></div></div>`);
+    });
+
+    function handleKeyword(keyword) {
+      $(".reviews-body").html("");
+
+      info.Comments.forEach(comment => {
+        if (comment.Comment.includes(keyword))
+          $(".reviews-body")
+          .append(`<div class="card"><div class="card-body"><div class="rating-box">
+              <div class="rating" style="width:${comment.Stars*20}%;"></div>
+              <p class="badge badge-pill badge-primary">${comment.Service}</p>
+              </div><p>${comment.Comment}</p></div></div>`);
+      });
+    }
+
+    info.Keywords.forEach(keyword => {
+      $(".keywords")
+        .append(
+          `<button type="button" class="btn btn-primary" onclick="handleKeyword('${keyword}')">${keyword}</button>`
+          );
+    });
+    $(".keywords")
+        .append(
+          `<button type="button" class="btn btn-secondary" onclick="handleKeyword('')">Reset Filters</button>`
+          );
   </script>
 </body>
 
