@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-  <title>PRS Projcet</title>
+  <title>PRS Project</title>
 
   <!-- CSS only -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
 
   <style>
     body {
@@ -61,22 +62,38 @@
     <a class="navbar-brand" href="#">PRS Project</a>
   </nav>
 
-  <h1 class="display-4 offset-1 doctor-name"></h1>
-  <div class="row">
-    <div class="col-3 offset-1 sidebar">
-      <table class="table rating-table">
-        <tbody></tbody>
-      </table>
-    </div>
-    <div class="col-7 reviews">
-      <div class="keywords btn-toolbar" role="toolbar"></div>
-      <div class="reviews-body"></div>
+  <div class="doctors">
+    <table class="table doctors-table">
+      <thead>
+        <tr>
+          <th>Doctor</th>
+          <th>Specialty</th>
+          <th>Gender</th>
+          <th>Age</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="doctor">
+    <h1 class="display-4 offset-1 doctor-name"></h1>
+    <div class="row">
+      <div class="col-3 offset-1 sidebar">
+        <table class="table rating-table">
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="col-7 reviews">
+        <div class="keywords btn-toolbar" role="toolbar"></div>
+        <div class="reviews-body"></div>
+      </div>
     </div>
   </div>
 
   <!-- JS, Popper.js, and jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -84,115 +101,82 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
 
   <script>
-    const info = {
-        "Id": "8",
-        "Name": "Ann Morvai",
-        "Degree": "MD",
-        "Specialty": "Family Medicine",
-        "Gender": "Female",
-        "Age": "57",
-        "Total Score": "4.07",
-        "Friendly Staff": "4.17",
-        "Scheduling": "4",
-        "Accurate Diagnosis": "4",
-        "Appropriate Followup": "4",
-        "Spends Time": "4.17",
-        "Bedside Experience": "4.09",
-        "Comments": [
-            {
-                "Service": "Vitals",
-                "Comment": "I have been a patient of Dr Morvai for roughly 17 years and I have never been disappointed I can tell she loves helping her patients and has been very sweet to me She also has a tremendous staff that is always very friendly",
-                "Stars": "5"
-            },
-            {
-                "Service": "Vitals",
-                "Comment": "Ann is a wonderful doctor I've been a patient almost as long as she's been practicing My partner was a long term patient of Ann's as well and was the one that connected me with 15 or 16 years ago",
-                "Stars": "5"
-            },
-            {
-                "Service": "Vitals",
-                "Comment": "Although the wait time can be a bit long it is so worth it when it comes to your time with the Doc Dr Morvai is very attentive and is genuinely concerned about your well being The only negative is that she only works 2 days a week All of the staff are very kind and willing to work with you I have been seeing Dr Morvai since 1991 this should be testament to itself Thanks for all of the help through the years",
-                "Stars": "5"
-            },
-            {
-                "Service": "Vitals",
-                "Comment": "Very friendly staff able to see me same day i was very impressed",
-                "Stars": "5"
-            },
-            {
-                "Service": "Vitals",
-                "Comment": "i was very impressed with Dr Morvai She has tremendous experience wonderful manner and is very thorough and complete She explains things very well and cares for her patients",
-                "Stars": "5"
-            },
-            {
-                "Service": "Vitals",
-                "Comment": "Uncaring and incompetent staff should not be allowed in profession that deals with people Aid jabs arm randomly to take blood Emphasis on selling medical aesthetics is offensive The doctors and medical staff are fine in the two minutes you get to see them but why put up with the lack of respect",
-                "Stars": "1"
-            },
-            {
-                "Service": "Healthgrades",
-                "Comment": "Dr Morvai has been my family physician for over 17 years and she has always had the utmost respect and reliability for me She always sees me for my annual visit but these last few years I was diagnosed with Lupus which Dr Morvai helped me through every step of the way I would highly recommend Dr Morvai to all of my family and friends",
-                "Stars": "5"
-            }
-        ],
-        "Keywords": [
-            "staff",
-            "tremendous",
-            "friendly",
-            "wonderful",
-            "time",
-            "impressed",
-            "respect",
-            "wait"
-        ]
-    };
-
-    $('.doctor-name').text(info.Name);
-
-    [
-      "Total Score", "Friendly Staff", "Scheduling", "Accurate Diagnosis",
-      "Appropriate Followup", "Spends Time", "Bedside Experience"
-    ].forEach(metric => {
-      $(".rating-table tbody")
-        .append(`<tr>
-          <td>${metric}</td>
-          <td><div class="rating-box"><div class="rating" style="width: ${info[metric]*20}%;"></div></div></td>
-          </tr>`);
-    });
-
-    info.Comments.forEach(comment => {
-      $(".reviews-body")
-        .append(`<div class="card"><div class="card-body"><div class="rating-box">
-          <div class="rating" style="width:${comment.Stars*20}%;"></div>
-          <p class="badge badge-pill badge-primary">${comment.Service}</p>
-          </div><p>${comment.Comment}</p></div></div>`);
-    });
+    const doctor = (new URLSearchParams(window.location.search)).get("doctor");
+    var info;
 
     function handleKeyword(keyword) {
       $(".reviews-body").html("");
 
       info.Comments.forEach(comment => {
-        if (comment.Comment.includes(keyword))
+        if (comment.Comment.toLowerCase().includes(keyword.toLowerCase()))
           $(".reviews-body")
           .append(`<div class="card"><div class="card-body"><div class="rating-box">
-              <div class="rating" style="width:${comment.Stars*20}%;"></div>
-              <p class="badge badge-pill badge-primary">${comment.Service}</p>
-              </div><p>${comment.Comment}</p></div></div>`);
+            <div class="rating" style="width:${comment.Stars*20}%;"></div>
+            <p class="badge badge-pill badge-primary">${comment.Service}</p>
+            </div><p>${comment.Comment}</p></div></div>`);
       });
     }
 
-    info.Keywords.forEach(keyword => {
-      $(".keywords")
-        .append(
-          `<button type="button" class="btn btn-primary" onclick="handleKeyword('${keyword}')">${keyword}</button>`
+    $.getJSON('data-synthesized.json', function (data) {
+      if (doctor) {
+        $('.doctors').hide();
+        $('.doctor').show();
+
+        info = data[doctor];
+
+        $('.doctor-name').text(`Dr. ${info.Name}`);
+
+        [
+          "Total Score", "Friendly Staff", "Scheduling", "Accurate Diagnosis",
+          "Appropriate Followup", "Spends Time", "Bedside Experience"
+        ].forEach(metric => {
+          $(".rating-table tbody")
+            .append(`<tr>
+            <td>${metric}</td>
+            <td><div class="rating-box"><div class="rating" style="width: ${info[metric]*20}%;"></div></div></td>
+            </tr>`);
+        });
+
+        info.Comments.forEach(comment => {
+          $(".reviews-body")
+            .append(`<div class="card"><div class="card-body"><div class="rating-box">
+            <div class="rating" style="width:${comment.Stars*20}%;"></div>
+            <p class="badge badge-pill badge-primary">${comment.Service}</p>
+            </div><p>${comment.Comment}</p></div></div>`);
+        });
+
+        info.Keywords.forEach(keyword => {
+          $(".keywords")
+            .append(
+              `<button type="button" class="btn btn-primary" onclick="handleKeyword('${keyword}')">${keyword}</button>`
+            );
+        });
+        $(".keywords")
+          .append(
+            `<button type="button" class="btn btn-secondary" onclick="handleKeyword('')">Reset Filters</button>`
           );
+      } else {
+        $('.doctor').hide();
+        $('.doctors').show();
+
+        data.forEach((doctorInfo, index) => {
+          $(".doctors-table tbody")
+            .append(`<tr>
+            <td><a href="?doctor=${index}">Dr. ${doctorInfo.Name}, ${doctorInfo.Degree}</a></td>
+            <td>${doctorInfo.Specialty}</td>
+            <td>${doctorInfo.Gender}</td>
+            <td>${doctorInfo.Age}</td>
+            <td><span style="display: none">${doctorInfo["Total Score"]}</span><div class="rating-box"><div class="rating" style="width: ${doctorInfo["Total Score"]*20}%;"></div></div></td>
+            </tr>`);
+        });
+
+        $('.doctors-table').DataTable();
+      }
     });
-    $(".keywords")
-        .append(
-          `<button type="button" class="btn btn-secondary" onclick="handleKeyword('')">Reset Filters</button>`
-          );
   </script>
 </body>
 
