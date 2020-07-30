@@ -78,7 +78,9 @@
   </div>
 
   <div class="doctor">
-    <h1 class="display-4 offset-1 doctor-name"></h1>
+    <h1 class="display-4 offset-1 doctor-name">
+      <a class="btn btn-lg btn-primary" href="?doctor=#">Back</a>
+    </h1>
     <div class="row">
       <div class="col-3 offset-1 sidebar">
         <table class="table rating-table">
@@ -140,7 +142,7 @@
 
         info = data[doctor];
 
-        $('.doctor-name').text(`Dr. ${info.Name}`);
+        $('.doctor-name').append(`Dr. ${info.Name}`);
 
         [
           "Total Score", "Friendly Staff", "Scheduling", "Accurate Diagnosis",
