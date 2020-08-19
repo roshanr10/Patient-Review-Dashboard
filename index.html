@@ -214,7 +214,7 @@
         var chart = new Chart(ctx, {
           type: 'line',
           data: {
-            labels: _.uniq(info.Comments.map(comment => comment.Date)),
+            labels: _.uniq(info.Comments.map(comment => comment.Date)).reverse(),
             datasets: [{
               label: 'Patient Star Rating',
               backgroundColor: 'rgb(255, 99, 132)',
