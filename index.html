@@ -175,8 +175,39 @@
 
         });
 
+        const ratings = _.mergeWith(_.mapValues(
+          _.countBy(
+            info.Comments.map(comment => Number(comment.Stars)), 
+            Math.round
+          ),
+          rating => rating / info.Comments.length
+        ), {
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        }, (a, b) => (a + b) * 100);
+
+
         $(".rating-table tbody")
-          .append(`<tr><td>Review Count</td></tr>`);
+          .append(`<tr><td>
+                    <div class="progress">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: ${ratings["5"]}%"></div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: ${ratings["4"]}%"></div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: ${ratings["3"]}%"></div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: ${ratings["2"]}%"></div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: ${ratings["1"]}%"></div>
+                    </div>
+                  </td></tr>`);
         [
           "Total Score", "Friendly Staff", "Scheduling", "Accurate Diagnosis",
           "Appropriate Followup", "Spends Time", "Bedside Experience"

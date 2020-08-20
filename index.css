@@ -71,3 +71,7 @@ input {
 /* .rating-cell {
     width: 8em;
 } */
+
+.progress {
+    margin-bottom: 5px;
+}
