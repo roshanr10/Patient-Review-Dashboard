@@ -90,38 +90,36 @@
       handleKeyword();
     }
 
+    function displayComment(comment){
+      const senti = comment.Sentiment == 0 ? "Neutral" : (
+            comment.Sentiment > 0 ? "Positive" : "Negative");
+         
+      $(".reviews-body")
+        .append(
+          `<div class="card"><div class="card-body"><div class="rating-box">
+          <div class="rating" style="width:${comment.Stars*20}%;"></div> 
+          </div> (${Number(comment.Stars).toFixed(1)}) - ${comment.Date}
+          <p class="badge badge-pill badge-${comment.Service}">${comment.Service}</p>
+          <p class="badge badge-pill badge-${senti}">${senti}</p>
+          <p>${comment.Comment}</p></div></div>`
+        );
+    }
+
     function handleKeyword(keyword) {
       $(".reviews-body").html("");
 
       if (!keyword)
-        info.Comments.forEach(comment => {
-          const senti = comment.Sentiment == 0 ? "Neutral" : (
-            comment.Sentiment > 0 ? "Positive" : "Negative");
-          $(".reviews-body")
-            .append(
-              `<div class="card"><div class="card-body"><div class="rating-box">
-              <div class="rating" style="width:${comment.Stars*20}%;"></div> 
-              </div> (${Number(comment.Stars).toFixed(1)}) - ${comment.Date}
-              <p class="badge badge-pill badge-${comment.Service}">${comment.Service}</p>
-              <p class="badge badge-pill badge-${senti}">${senti}</p>
-              <p>${comment.Comment}</p></div></div>`
-            );
-        });
+        info.Comments
+          .forEach(displayComment);
       else
-        info.Comments.forEach(comment => {
-          const senti = comment.Sentiment == 0 ? "Neutral" : (
-            comment.Sentiment > 0 ? "Positive" : "Negative");
-          if (comment.Comment.toLowerCase().includes(`${keyword}`.toLowerCase()))
-            $(".reviews-body")
-            .append(
-              `<div class="card"><div class="card-body"><div class="rating-box">
-              <div class="rating" style="width:${comment.Stars*20}%;"></div>
-              </div> (${Number(comment.Stars).toFixed(1)}) - ${comment.Date}
-              <p class="badge badge-pill badge-${comment.Service}">${comment.Service}</p>
-              <p class="badge badge-pill badge-${senti}">${senti}</p>
-              <p>${comment.Comment.replace(new RegExp(`${keyword}`, "ig"), `<mark class="text-white bg-primary">${keyword}</mark>`)}</p></div></div>`
-            );
-        });
+        info.Comments
+          .filter(comment => comment.Comment.toLowerCase().includes(`${keyword}`.toLowerCase()))
+          .map(comment => {
+            var mapComment = Object.assign({}, comment);
+            mapComment.Comment = mapComment.Comment.replace(new RegExp(`${keyword}`, "ig"), `<mark class="text-white bg-primary">${keyword}</mark>`)
+            return mapComment;
+          })
+          .forEach(displayComment);
     }
 
     $.getJSON('data-synthesized.json', function (data) {
@@ -172,7 +170,6 @@
               }]
             }
           }
-
         });
 
         const ratings = _.mergeWith(_.mapValues(
@@ -188,7 +185,6 @@
           "4": 0,
           "5": 0
         }, (a, b) => (a ? a + b : b).toFixed(3) * 100);
-
 
         $(".rating-table tbody")
           .append(`<tr><td>
@@ -257,8 +253,7 @@
 
         $(".keywords")
           .append(
-            `
-            <div class="btn-group"><button type="button" class="btn btn-secondary" onclick="resetFilter();">Reset Filters</button></div>`
+            `<div class="btn-group"><button type="button" class="btn btn-secondary" onclick="resetFilter();">Reset Filters</button></div>`
           );
       } else {
         $('.doctor').hide();
@@ -276,9 +271,7 @@
                 // "Friendly Staff", "Scheduling", "Accurate Diagnosis",
                 // "Appropriate Followup", "Spends Time", "Bedside Experience"
               ].map(field => `<td class="rating-cell"><div class="rating-box"><div class="rating" style="width: ${doctorInfo[field]*20}%;"></div>
-              </div>(${Number(doctorInfo[field]).toFixed(1)})</td>`).join("") +
-
-              `</tr>`);
+              </div>(${Number(doctorInfo[field]).toFixed(1)})</td>`).join("") + `</tr>`);
         });
 
         $('.doctors-table').DataTable({
