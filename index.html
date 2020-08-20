@@ -100,7 +100,7 @@
           <div class="rating" style="width:${comment.Stars*20}%;"></div> 
           </div> (${Number(comment.Stars).toFixed(1)}) - ${comment.Date}
           <p class="badge badge-pill badge-${comment.Service}">${comment.Service}</p>
-          <p class="badge badge-pill badge-${senti}">${senti}</p>
+          <p class="badge badge-pill badge-${senti}">${senti} Tone</p>
           <p>${comment.Comment}</p></div></div>`
         );
     }
@@ -133,7 +133,7 @@
 
         $(".rating-table tbody")
           .prepend(`<tr>
-            <td>Review Count</td>
+            <td>Rating Count</td>
             <td><div class="rating-line">${info["Review Count"]}</div></td>
             </tr>`);
 
@@ -145,7 +145,8 @@
             labels: _.uniq(info.Comments.map(comment => comment.Date)).reverse(),
             datasets: [{
               label: 'Patient Star Rating',
-              backgroundColor: 'rgb(255, 99, 132)',
+              fill: false,
+              borderWidth: 5,
               borderColor: 'rgb(255, 99, 132)',
               data: _.values(info.Comments.reduce((accum, comment) => {
                 accum[comment.Date] = accum[comment.Date] || {

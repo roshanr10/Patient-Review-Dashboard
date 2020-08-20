@@ -56,16 +56,19 @@ input {
 .badge-Positive {
     color: #fff;
     background-color: #28a745;
+    float: right;
 }
 
 .badge-Neutral {
     color: #fff;
     background-color: #343a40;
+    float: right;
 }
 
 .badge-Negative {
     color: #fff;
     background-color: #dc3545;
+    float: right;
 }
 
 /* .rating-cell {
