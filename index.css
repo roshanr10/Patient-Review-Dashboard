@@ -1,0 +1,73 @@
+body {
+    padding-top: 80px;
+}
+
+button,
+input {
+    margin: 10px 5px;
+}
+
+/* SRC: https://stackoverflow.com/a/49343426 */
+.rating-box {
+    position: relative;
+    vertical-align: middle;
+    font-size: 1.2em;
+    font-family: FontAwesome;
+    display: inline-block;
+    color: #F68127;
+}
+
+.rating-box:before {
+    content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.rating-box .rating {
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #F68127;
+}
+
+.rating-box .rating:before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+}
+
+.card {
+    margin-bottom: 10px;
+}
+
+.rating-table .rating-line {
+    position: absolute;
+    right: 0;
+}
+
+.badge-Healthgrades {
+    color: #fff;
+    background-color: #28406B;
+}
+
+.badge-Vitals {
+    color: #fff;
+    background-color: #BA68C8;
+}
+
+.badge-Positive {
+    color: #fff;
+    background-color: #28a745;
+}
+
+.badge-Neutral {
+    color: #fff;
+    background-color: #343a40;
+}
+
+.badge-Negative {
+    color: #fff;
+    background-color: #dc3545;
+}
+
+/* .rating-cell {
+    width: 8em;
+} */

@@ -9,81 +9,7 @@
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-
-  <style>
-    body {
-      padding-top: 80px;
-    }
-
-    button, input {
-      margin: 10px 5px;
-    }
-
-    /* SRC: https://stackoverflow.com/a/49343426 */
-    .rating-box {
-      position: relative;
-      vertical-align: middle;
-      font-size: 1.2em;
-      font-family: FontAwesome;
-      display: inline-block;
-      color: #F68127;
-    }
-
-    .rating-box:before {
-      content: "\f006 \f006 \f006 \f006 \f006";
-    }
-
-    .rating-box .rating {
-      position: absolute;
-      left: 0;
-      top: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      color: #F68127;
-    }
-
-    .rating-box .rating:before {
-      content: "\f005 \f005 \f005 \f005 \f005";
-    }
-
-    .card {
-      margin-bottom: 10px;
-    }
-
-    .rating-table .rating-line {
-      position: absolute;
-      right: 0;
-    }
-
-    .badge-Healthgrades {
-      color: #fff;
-      background-color: #28406B;
-    }
-
-    .badge-Vitals {
-      color: #fff;
-      background-color: #BA68C8;
-    }
-
-    .badge-Positive {
-      color: #fff;
-      background-color: #28a745;
-    }
-
-    .badge-Neutral {
-      color: #fff;
-      background-color: #343a40;
-    }
-
-    .badge-Negative {
-      color: #fff;
-      background-color: #dc3545;
-    }
-
-    /* .rating-cell {
-      width: 8em;
-    } */
-  </style>
+  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body>
@@ -127,7 +53,11 @@
     <div class="row">
       <div class="col-3 offset-1 sidebar">
         <table class="table rating-table">
-          <tbody><tr><td><canvas id="doctorChart"></canvas></td></tr></tbody>
+          <tbody>
+            <tr>
+              <td><canvas id="doctorChart"></canvas></td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div class="col-7 reviews">
@@ -155,7 +85,7 @@
     const doctor = (new URLSearchParams(window.location.search)).get("doctor");
     var info;
 
-    function resetFilter(){
+    function resetFilter() {
       $("#search").val("");
       handleKeyword();
     }
@@ -210,7 +140,7 @@
             </tr>`);
 
         var ctx = $('#doctorChart');
-        
+
         var chart = new Chart(ctx, {
           type: 'line',
           data: {
@@ -227,7 +157,7 @@
                 accum[comment.Date].total += 1;
                 accum[comment.Date].sum += Number(comment.Stars);
                 accum[comment.Date].avg = accum[comment.Date].sum / accum[comment.Date].total;
-                
+
                 return accum;
               }, {})).reverse().map(rating => rating.avg)
             }]
@@ -244,7 +174,12 @@
           }
 
         });
-        
+
+        $(".rating-table tbody")
+          .append(`<tr>
+            <td>Review Count</td></tr><tr>
+            <td>
+            </td></tr>`);
         [
           "Total Score", "Friendly Staff", "Scheduling", "Accurate Diagnosis",
           "Appropriate Followup", "Spends Time", "Bedside Experience"
@@ -265,20 +200,21 @@
               `<div class="btn-group"><button type="button" class="btn btn-primary" onclick="handleKeyword(' ${keyword} ')">${keyword}</button></div>`
             );
         });
-        
+
         $(".keywords")
           .append(
             `<div class="input-group">
               <input id="search" type="text" class="form-control" placeholder="Custom Search">
             </div>`);
-          
-        $('#search').on('input', function() {
+
+        $('#search').on('input', function () {
           console.log($("#search").val())
           handleKeyword($("#search").val());
         });
 
         $(".keywords")
-          .append(`
+          .append(
+            `
             <div class="btn-group"><button type="button" class="btn btn-secondary" onclick="resetFilter();">Reset Filters</button></div>`
           );
       } else {
@@ -304,27 +240,29 @@
 
         $('.doctors-table').DataTable({
           // stateSave: true,
-          "order": [[ 5, "desc" ]],
+          "order": [
+            [5, "desc"]
+          ],
           initComplete: function () {
-            this.api().columns().every( function () {
-                var column = this;
-                var select = $('<select><option value=""></option></select>')
-                    .appendTo( $(column.footer()).empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
- 
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
- 
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-        }
+            this.api().columns().every(function () {
+              var column = this;
+              var select = $('<select><option value=""></option></select>')
+                .appendTo($(column.footer()).empty())
+                .on('change', function () {
+                  var val = $.fn.dataTable.util.escapeRegex(
+                    $(this).val()
+                  );
+
+                  column
+                    .search(val ? '^' + val + '$' : '', true, false)
+                    .draw();
+                });
+
+              column.data().unique().sort().each(function (d, j) {
+                select.append('<option value="' + d + '">' + d + '</option>')
+              });
+            });
+          }
         });
       }
     });
