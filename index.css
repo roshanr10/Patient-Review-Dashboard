@@ -75,3 +75,11 @@ input {
 .progress {
     margin-bottom: 5px;
 }
+
+.progress-label {
+    float: left;
+    margin-right: .5em;
+    font-size: 0.75rem;
+    margin-bottom: 0;
+    width: 25%;
+  }
