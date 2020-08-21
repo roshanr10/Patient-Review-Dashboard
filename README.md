@@ -1,12 +1,14 @@
 # PRS Project
 
 ## Dependencies
-Node.JS v10.15.3
-NPM v6.14.5
+-[Node.JS v10.15.3[(https://nodejs.org/en/)
+    - NPM v6.14.5
+- Text Editor
+    - VS Code or similar is fine.
 
-## Package Installation
+## Getting Environment Configured
 - Download Repository
-- Run `npm install`
+- Run `npm install` from downloaded directory
 
 ## Breakdown
 1. `node filters.js`
