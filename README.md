@@ -1,7 +1,7 @@
 # PRS Project
 
 ## Dependencies
--[Node.JS v10.15.3[(https://nodejs.org/en/)
+- [Node.JS v10.15.3[(https://nodejs.org/en/)
     - NPM v6.14.5
 - Text Editor
     - VS Code or similar is fine.
