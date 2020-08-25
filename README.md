@@ -16,9 +16,9 @@
 The codebase is split into three major sections. The first two are solely data cleansing and validating the proof of concept prior to synthesizing the information into a web dashboard.
 
 1. `node filters.js`
-    This script filters comments.csv and doctor-names.csv into comments-filtered.csv
+    - This script filters comments.csv and doctor-names.csv into comments-filtered.csv
 2. `node comments.js`
-    Proof of Concept, Keyword Analysis
+    - Proof of Concept, Keyword Analysis
 3. `node data-synthesize.js`
     - Primary script used to generate final JSON presented on site, seen at `index.html`. 
     - This script runs some minor calculations, does keyword analysis and basic sentiment analysis and then outputs `data-synthesized.json`.
