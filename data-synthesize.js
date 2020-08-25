@@ -26,6 +26,7 @@ require('fs').writeFileSync('./data-synthesized.json', JSON.stringify(
             return doctorsComments;
         })(),
         "Review Count": dataOriginal[doctor.Id].Review_No_HG + dataOriginal[doctor.Id].Review_No_vital 
+        /* NEW DOCTOR METRICS GO HERE */
     })).map(doctor => Object.assign(doctor, {
         Keywords: keyword_analyzer
             .wrest(doctor.Comments.map(comment => comment.Comment).join(" "), {
