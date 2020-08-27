@@ -36,6 +36,15 @@ Within `data-synthesize.js`, there's a comment `/* NEW DOCTOR METRICS GO HERE */
 If needed, more JSON/CSV files can be loaded to the script and joined into the data structure. This allows for easy integration of other approaches of topic modeling, keywords and sentiment analysis.
 
 ## Domain Configuration
+1. Purchase Domain
+2. Configure following A records for Apex domain (i.e. domain.com)
+    - 185.199.108.153
+    - 185.199.109.153
+    - 185.199.110.153
+    - 185.199.111.153
+3. Configure CNAME records for Subdomain (i.e. www.domain.com)
+    - lmotiwalla.github.io
+
 Please see [GitHub Pages Custom Domains](https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site) for more information about how to change the URL in future after domain purchase.
 
 ## Proposed TODOs (currently pending)
