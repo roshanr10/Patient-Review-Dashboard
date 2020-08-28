@@ -39,13 +39,13 @@ If needed, more JSON/CSV files can be loaded to the script and joined into the d
 1. Purchase Domain
 2. Configure Domain Name in GitHub Repository Settings
 3. DNS, choose one of the following based on Chosen (Sub)Domain
-    a. Configure following A records for Apex domain (i.e. domain.com)
-    - 185.199.108.153
-    - 185.199.109.153
-    - 185.199.110.153
-    - 185.199.111.153
-    b. Configure CNAME records for Subdomain (i.e. www.domain.com)
-    - lmotiwalla.github.io
+    - a. Configure following A records for Apex domain (i.e. domain.com)
+        - 185.199.108.153
+        - 185.199.109.153
+        - 185.199.110.153
+        - 185.199.111.153
+    - b. Configure CNAME records for Subdomain (i.e. www.domain.com)
+        - lmotiwalla.github.io
 
 Please see [GitHub Pages Custom Domains](https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site) for more information about how to change the URL in future after domain purchase.
 
